@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import productos from './productos/productos.js'
 
 function App() {
+  
+  
   return (
+    
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <h3>Lista de Productos</h3>
+        
+      <div className="contenedor">
+      {productos.map((producto) => (
+        <div key={producto.nro_producto}>
+            <div className="producto">
+                <p>{producto.nombre}</p>
+                <img src={producto.imagen}
+                className="imagen"
+                  alt='Imagen'
+                  loading="lazy"> 
+                </img>
+                <p >${producto.precio}</p>
+
+                <button className="boton">Añadir al carrito</button>
+            </div>
+          </div> 
+          ))}
+        </div>
+        </header>
+
     </div>
+    
   );
 }
 
